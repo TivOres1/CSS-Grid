@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(120px, 200px) minmax(240px, 1fr) 80px;
+      grid-template-columns: minmax(120px, 200px) minmax(240px, 1fr) 80px;
+  -ms-grid-rows: auto 1fr auto auto;
+      grid-template-rows: auto 1fr auto auto;
+      grid-template-areas: 'logotype search menu' 'images images images' 'contact contact contact' 'footerx footerx footerx';
+  min-height: 100vh;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    -ms-grid-columns: minmax(300px, auto) 1fr;
+        grid-template-columns: minmax(300px, auto) 1fr;
+    -ms-grid-rows: auto auto auto 1fr auto auto;
+        grid-template-rows: auto auto auto 1fr auto auto;
+        grid-template-areas: 'logotype images' 'menu images ' 'search images' '. images' 'contact images' 'footer footer';
+  }
+}
+
+.logo {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 2;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 2;
+  height: 100px;
+  background-color: red;
+}
+
+.search {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  background-color: blue;
+}
+
+@media (min-width: 1024px) {
+  .search {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: search;
+    min-height: 300px;
+  }
+}
+
+.menu {
+  grid-column: -1/-2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  background-color: green;
+}
+
+@media (min-width: 1024px) {
+  .menu {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: menu;
+    min-height: 300px;
+  }
+}
+
+.gallery {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: images;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(205px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+  gap: 15px;
+  padding: 120px 15px 15px;
+  position: relative;
+  background-color: yellow;
+}
+
+.gallery img {
+  width: 100%;
+}
+
+.gallery h1 {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.contact {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: contact;
+  height: 60px;
+  background-color: grey;
+}
+
+.footer {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: footerx;
+  height: 50px;
+  background-color: red;
+}
+/*# sourceMappingURL=style.css.map */
