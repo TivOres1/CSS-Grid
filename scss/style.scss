@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: minmax(120px, 200px) minmax(240px, 1fr) 80px;
+    grid-template-rows: auto 1fr auto auto;
+    grid-template-areas: 
+    'logotype search menu'
+    'images images images'
+    'contact contact contact'
+    'footerx footerx footerx';
+
+    @media (min-width: 1024px) {
+        grid-template-columns: minmax(300px, auto) 1fr;
+        grid-template-rows: auto auto auto 1fr auto auto;
+        grid-template-areas: 
+        'logotype images'
+        'menu images '
+        'search images'
+        '. images'
+        'contact images'
+        'footer footer';
+    }
+
+    min-height: 100vh;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.logo {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    height: 100px;
+    background-color: red;
+    //@media (min-width: 1024px) {
+    //    grid-area: logotype;
+    //}
+}
+
+.search {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    background-color: blue;
+    @media (min-width: 1024px) {
+        grid-area: search;
+        min-height: 300px;
+    }
+}
+
+.menu {
+    grid-column: -1/-2;
+    grid-row: 1/2;
+    background-color: green;
+    @media (min-width: 1024px) {
+        grid-area: menu;
+        min-height: 300px;
+    }
+}
+
+.gallery {
+    //grid-column: 1/-1;
+    //grid-row: 2;
+    grid-area: images;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+    gap: 15px;
+    padding: 120px 15px 15px;
+    position: relative;
+
+    img {
+        width: 100%;
+    }
+    background-color: yellow;
+
+    h1 {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(0,0,0,0.2);
+    }
+}
+
+.contact {
+    //grid-area: 3/1/4/-1;
+    grid-area: contact;
+    height: 60px;
+    background-color: grey;
+}
+
+.footer {
+   grid-area: footerx;
+   height: 50px;
+    background-color: red;
+}
